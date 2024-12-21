@@ -16,7 +16,11 @@ public class Media {
 		this.category = category;
 		this.cost = cost;
 	}
-	
+	public Media(String title, String category, double cost) {
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
 	public int getId() {
 		return id;
 	}
@@ -39,14 +43,19 @@ public class Media {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Media) {
-			Media media = (Media) obj;
-			if(this.title == media.title) {
-				return true;
-			}
-		}
-		return false;
+	    if (this == obj) {
+	        return true;
+	    }
+	    if (obj == null) {
+	        return false;
+	    }
+	    if (!(obj instanceof Media)) {
+	        return false;
+	    }
+	    Media other = (Media) obj;
+	    return this.title != null && this.title.equals(other.title);
 	}
+
 	
 	public String toString() {
 		return "Title: " + this.title

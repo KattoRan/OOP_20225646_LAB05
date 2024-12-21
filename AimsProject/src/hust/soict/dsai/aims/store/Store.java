@@ -38,4 +38,8 @@ private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 		System.out.println("No item found");
 		return null;
 	}
+	
+	public ArrayList<Media> getItemsInStore() {
+        return this.itemsInStore;
+    }
 }

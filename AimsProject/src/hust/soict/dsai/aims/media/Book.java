@@ -6,12 +6,16 @@ public class Book extends Media {
     private List<String> authors = new ArrayList<String>();
     private static int nbBooks = 0;
     //Constructor
-    public Book(String title, String category, double cost,
-			   List<String> authors) {
+    public Book(String title, String category, double cost,List<String> authors) {
 		super(nbBooks++, title, category, cost);
 		this.authors = authors;
 	}
-    public List<String> getAuthors() {
+    public Book(String title, String category, double cost, String author) {
+    	super(title, category, cost);  // Call to the superclass constructor (Media)
+    	this.authors = new ArrayList<>();
+        this.authors.add(author);          // Initialize the author field
+	}
+	public List<String> getAuthors() {
 		return authors;
 	}
 

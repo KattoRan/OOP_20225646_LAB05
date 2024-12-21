@@ -3,11 +3,13 @@ package hust.soict.dsai.aims.cart;
 import java.util.ArrayList;
 import java.util.Objects;
 import hust.soict.dsai.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Cart {
-private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 	
-	public ArrayList<Media> getItemsOrdered() {
+	public ObservableList<Media> getItemsOrdered() {
 		return this.itemsOrdered;
 	}
 	
@@ -67,4 +69,12 @@ private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 		}
 		System.out.println("----------------------------");
 	}
+	
+	public int getSize() {
+        return this.itemsOrdered.size();
+    }
+
+    public void empty() {
+        this.itemsOrdered.clear();
+    }
 }

@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.media;
 
+import hust.soict.dsai.aims.exception.PlayerException;
+
 public class DigitalVideoDisc extends Disc implements Playable {
 private static int nbDigitalVideoDiscs = 0;
 	
@@ -24,15 +26,20 @@ private static int nbDigitalVideoDiscs = 0;
 	}
 	
 	@Override
-	public void play() {
-		System.out.println("Playing DVD: " + this.getTitle());
-		System.out.println("DVD length: " + this.getLength());
+	public void play() throws PlayerException {
+        if (this.getLength() <= 0) {
+            throw new PlayerException("ERROR: DVD length is non-positive!");
+        } else {
+            System.out.println("Playing DVD: " + this.getTitle());
+            System.out.println("DVD length: " + this.getLength());
+        }
 	}
 
 	@Override
 	public void setTitle(String title) {
 	    super.setTitle(title); // Gọi phương thức setTitle của lớp Media
 	}
+	
 
 
 }
